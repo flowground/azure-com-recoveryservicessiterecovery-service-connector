@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "storageClassificationName": {
+            "required": true,
+            "type": "string"
+        },
+        "storageClassificationMappingName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Storage mapping input.",
+            "properties": {
+                "properties": {
+                    "description": "Storage mapping input properties.",
+                    "properties": {
+                        "targetStorageClassificationId": {
+                            "description": "The ID of the storage object.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

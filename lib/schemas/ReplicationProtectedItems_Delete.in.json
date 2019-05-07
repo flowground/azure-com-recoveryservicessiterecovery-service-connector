@@ -1,0 +1,70 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "protectionContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "replicatedProtectedItemName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Disable protection input.",
+            "properties": {
+                "properties": {
+                    "description": "Disable protection input properties.",
+                    "properties": {
+                        "disableProtectionReason": {
+                            "description": "Disable protection reason. It can have values NotSpecified/MigrationComplete.",
+                            "enum": [
+                                "NotSpecified",
+                                "MigrationComplete"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "DisableProtectionReason"
+                            }
+                        },
+                        "replicationProviderInput": {
+                            "description": "Replication provider specific input.",
+                            "discriminator": {
+                                "propertyName": "instanceType"
+                            },
+                            "properties": {
+                                "instanceType": {
+                                    "description": "The class type.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

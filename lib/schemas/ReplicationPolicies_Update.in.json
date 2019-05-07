@@ -1,0 +1,50 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "policyName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Update policy input.",
+            "properties": {
+                "properties": {
+                    "description": "The ReplicationProviderSettings.",
+                    "properties": {
+                        "replicationProviderSettings": {
+                            "description": "The ReplicationProviderSettings.",
+                            "discriminator": {
+                                "propertyName": "instanceType"
+                            },
+                            "properties": {
+                                "instanceType": {
+                                    "description": "The class type.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

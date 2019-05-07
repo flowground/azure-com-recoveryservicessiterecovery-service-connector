@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "protectionContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "replicatedProtectedItemName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Resolve health input.",
+            "properties": {
+                "properties": {
+                    "description": "Disable resolve health input properties.",
+                    "properties": {
+                        "healthErrors": {
+                            "description": "Health errors.",
+                            "items": {
+                                "description": "Resolve health errors input properties.",
+                                "properties": {
+                                    "healthErrorId": {
+                                        "description": "Health error id.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

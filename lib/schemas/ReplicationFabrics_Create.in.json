@@ -1,0 +1,51 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Site details provided during the time of site creation",
+            "properties": {
+                "properties": {
+                    "description": "Fabric creation input.",
+                    "properties": {
+                        "customDetails": {
+                            "description": "Fabric provider specific creation input.",
+                            "discriminator": {
+                                "propertyName": "instanceType"
+                            },
+                            "properties": {
+                                "instanceType": {
+                                    "description": "Gets the class type.",
+                                    "readOnly": true,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

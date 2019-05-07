@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "protectionContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "replicatedProtectedItemName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Input definition for planned failover.",
+            "properties": {
+                "properties": {
+                    "description": "Planned failover input properties",
+                    "properties": {
+                        "failoverDirection": {
+                            "description": "Failover direction.",
+                            "type": "string"
+                        },
+                        "providerSpecificDetails": {
+                            "description": "Provider specific settings",
+                            "discriminator": {
+                                "propertyName": "instanceType"
+                            },
+                            "properties": {
+                                "instanceType": {
+                                    "description": "The class type.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

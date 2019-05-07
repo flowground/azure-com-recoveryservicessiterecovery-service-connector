@@ -1,0 +1,125 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "protectionContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "replicatedProtectedItemName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Update replication protected item input.",
+            "properties": {
+                "properties": {
+                    "description": "Update replication protected item properties.",
+                    "properties": {
+                        "enableRdpOnTargetOption": {
+                            "description": "The selected option to enable RDP\\SSH on target vm after failover. String value of {SrsDataContract.EnableRDPOnTargetOption} enum.",
+                            "type": "string"
+                        },
+                        "licenseType": {
+                            "description": "License type.",
+                            "enum": [
+                                "NotSpecified",
+                                "NoLicenseType",
+                                "WindowsServer"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "LicenseType"
+                            }
+                        },
+                        "providerSpecificDetails": {
+                            "description": "The provider specific input to update replication protected item.",
+                            "discriminator": {
+                                "propertyName": "instanceType"
+                            },
+                            "properties": {
+                                "instanceType": {
+                                    "description": "The class type.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "recoveryAvailabilitySetId": {
+                            "description": "The target availability set id.",
+                            "type": "string"
+                        },
+                        "recoveryAzureVMName": {
+                            "description": "Target azure VM name given by the user.",
+                            "type": "string"
+                        },
+                        "recoveryAzureVMSize": {
+                            "description": "Target Azure Vm size.",
+                            "type": "string"
+                        },
+                        "selectedRecoveryAzureNetworkId": {
+                            "description": "Target Azure Network Id.",
+                            "type": "string"
+                        },
+                        "selectedSourceNicId": {
+                            "description": "The selected source nic Id which will be used as the primary nic during failover.",
+                            "type": "string"
+                        },
+                        "vmNics": {
+                            "description": "The list of vm nic details.",
+                            "items": {
+                                "description": "Hyper V VM network input details.",
+                                "properties": {
+                                    "enableAcceleratedNetworkingOnRecovery": {
+                                        "description": "Whether the NIC has accelerated networking enabled.",
+                                        "type": "boolean"
+                                    },
+                                    "nicId": {
+                                        "description": "The nic Id.",
+                                        "type": "string"
+                                    },
+                                    "recoveryVMSubnetName": {
+                                        "description": "Recovery VM subnet name.",
+                                        "type": "string"
+                                    },
+                                    "replicaNicStaticIPAddress": {
+                                        "description": "Replica nic static IP address.",
+                                        "type": "string"
+                                    },
+                                    "selectionType": {
+                                        "description": "Selection type for failover.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

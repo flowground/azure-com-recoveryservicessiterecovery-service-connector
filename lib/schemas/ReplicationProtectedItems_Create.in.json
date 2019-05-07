@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "protectionContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "replicatedProtectedItemName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Enable protection input.",
+            "properties": {
+                "properties": {
+                    "description": "Enable protection input properties.",
+                    "properties": {
+                        "policyId": {
+                            "description": "The Policy Id.",
+                            "type": "string"
+                        },
+                        "protectableItemId": {
+                            "description": "The protectable item Id.",
+                            "type": "string"
+                        },
+                        "providerSpecificDetails": {
+                            "description": "The ReplicationProviderInput. For HyperVReplicaAzure provider, it will be AzureEnableProtectionInput object. For San provider, it will be SanEnableProtectionInput object. For HyperVReplicaAzure provider, it can be null.",
+                            "discriminator": {
+                                "propertyName": "instanceType"
+                            },
+                            "properties": {
+                                "instanceType": {
+                                    "description": "The class type.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

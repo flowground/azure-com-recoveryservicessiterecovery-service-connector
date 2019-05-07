@@ -1,0 +1,231 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "recoveryPlanName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Update recovery plan input class.",
+            "properties": {
+                "properties": {
+                    "description": "Recovery plan update properties.",
+                    "properties": {
+                        "groups": {
+                            "description": "The recovery plan groups.",
+                            "items": {
+                                "description": "Recovery plan group details.",
+                                "properties": {
+                                    "endGroupActions": {
+                                        "description": "The end group actions.",
+                                        "items": {
+                                            "description": "Recovery plan action details.",
+                                            "properties": {
+                                                "actionName": {
+                                                    "description": "The action name.",
+                                                    "type": "string"
+                                                },
+                                                "customDetails": {
+                                                    "description": "The custom details.",
+                                                    "discriminator": {
+                                                        "propertyName": "instanceType"
+                                                    },
+                                                    "properties": {
+                                                        "instanceType": {
+                                                            "description": "Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).",
+                                                            "readOnly": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "failoverDirections": {
+                                                    "description": "The list of failover directions.",
+                                                    "items": {
+                                                        "enum": [
+                                                            "PrimaryToRecovery",
+                                                            "RecoveryToPrimary"
+                                                        ],
+                                                        "type": "string",
+                                                        "x-ms-enum": {
+                                                            "modelAsString": true,
+                                                            "name": "PossibleOperationsDirections"
+                                                        }
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "failoverTypes": {
+                                                    "description": "The list of failover types.",
+                                                    "items": {
+                                                        "enum": [
+                                                            "ReverseReplicate",
+                                                            "Commit",
+                                                            "PlannedFailover",
+                                                            "UnplannedFailover",
+                                                            "DisableProtection",
+                                                            "TestFailover",
+                                                            "TestFailoverCleanup",
+                                                            "Failback",
+                                                            "FinalizeFailback",
+                                                            "ChangePit",
+                                                            "RepairReplication",
+                                                            "SwitchProtection",
+                                                            "CompleteMigration"
+                                                        ],
+                                                        "type": "string",
+                                                        "x-ms-enum": {
+                                                            "modelAsString": true,
+                                                            "name": "ReplicationProtectedItemOperation"
+                                                        }
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "actionName",
+                                                "failoverTypes",
+                                                "failoverDirections",
+                                                "customDetails"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "groupType": {
+                                        "description": "The group type.",
+                                        "enum": [
+                                            "Shutdown",
+                                            "Boot",
+                                            "Failover"
+                                        ],
+                                        "type": "string",
+                                        "x-ms-enum": {
+                                            "modelAsString": true,
+                                            "name": "RecoveryPlanGroupType"
+                                        }
+                                    },
+                                    "replicationProtectedItems": {
+                                        "description": "The list of protected items.",
+                                        "items": {
+                                            "description": "Recovery plan protected item.",
+                                            "properties": {
+                                                "id": {
+                                                    "description": "The ARM Id of the recovery plan protected item.",
+                                                    "type": "string"
+                                                },
+                                                "virtualMachineId": {
+                                                    "description": "The virtual machine Id.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    },
+                                    "startGroupActions": {
+                                        "description": "The start group actions.",
+                                        "items": {
+                                            "description": "Recovery plan action details.",
+                                            "properties": {
+                                                "actionName": {
+                                                    "description": "The action name.",
+                                                    "type": "string"
+                                                },
+                                                "customDetails": {
+                                                    "description": "The custom details.",
+                                                    "discriminator": {
+                                                        "propertyName": "instanceType"
+                                                    },
+                                                    "properties": {
+                                                        "instanceType": {
+                                                            "description": "Gets the type of action details (see RecoveryPlanActionDetailsTypes enum for possible values).",
+                                                            "readOnly": true,
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "failoverDirections": {
+                                                    "description": "The list of failover directions.",
+                                                    "items": {
+                                                        "enum": [
+                                                            "PrimaryToRecovery",
+                                                            "RecoveryToPrimary"
+                                                        ],
+                                                        "type": "string",
+                                                        "x-ms-enum": {
+                                                            "modelAsString": true,
+                                                            "name": "PossibleOperationsDirections"
+                                                        }
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "failoverTypes": {
+                                                    "description": "The list of failover types.",
+                                                    "items": {
+                                                        "enum": [
+                                                            "ReverseReplicate",
+                                                            "Commit",
+                                                            "PlannedFailover",
+                                                            "UnplannedFailover",
+                                                            "DisableProtection",
+                                                            "TestFailover",
+                                                            "TestFailoverCleanup",
+                                                            "Failback",
+                                                            "FinalizeFailback",
+                                                            "ChangePit",
+                                                            "RepairReplication",
+                                                            "SwitchProtection",
+                                                            "CompleteMigration"
+                                                        ],
+                                                        "type": "string",
+                                                        "x-ms-enum": {
+                                                            "modelAsString": true,
+                                                            "name": "ReplicationProtectedItemOperation"
+                                                        }
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "actionName",
+                                                "failoverTypes",
+                                                "failoverDirections",
+                                                "customDetails"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "required": [
+                                    "groupType"
+                                ],
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

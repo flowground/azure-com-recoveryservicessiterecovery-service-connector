@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Query parameter to enumerate jobs.",
+            "properties": {
+                "affectedObjectTypes": {
+                    "description": "The type of objects.",
+                    "type": "string"
+                },
+                "endTime": {
+                    "description": "Date time to get jobs up to.",
+                    "type": "string"
+                },
+                "fabricId": {
+                    "description": "The Id of the fabric to search jobs under.",
+                    "type": "string"
+                },
+                "jobStatus": {
+                    "description": "The states of the job to be filtered can be in.",
+                    "type": "string"
+                },
+                "startTime": {
+                    "description": "Date time to get jobs from.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

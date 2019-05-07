@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "alertSettingName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to configure alerts for the system.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of a configure alert request.",
+                    "properties": {
+                        "customEmailAddresses": {
+                            "description": "The custom email address for sending emails.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        },
+                        "locale": {
+                            "description": "The locale for the email notification.",
+                            "type": "string"
+                        },
+                        "sendToOwners": {
+                            "description": "A value indicating whether to send email to subscription administrator.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

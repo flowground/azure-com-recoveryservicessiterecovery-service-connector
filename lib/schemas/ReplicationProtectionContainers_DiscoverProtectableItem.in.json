@@ -1,0 +1,53 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "protectionContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to add a physical machine as a protectable item in a container.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of a discover protectable item request.",
+                    "properties": {
+                        "friendlyName": {
+                            "description": "The friendly name of the physical machine.",
+                            "type": "string"
+                        },
+                        "ipAddress": {
+                            "description": "The IP address of the physical machine to be discovered.",
+                            "type": "string"
+                        },
+                        "osType": {
+                            "description": "The OS type on the physical machine.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

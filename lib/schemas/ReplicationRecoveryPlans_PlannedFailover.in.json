@@ -1,0 +1,72 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "recoveryPlanName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Recovery plan planned failover input.",
+            "properties": {
+                "properties": {
+                    "description": "The recovery plan planned failover input properties.",
+                    "properties": {
+                        "failoverDirection": {
+                            "description": "The failover direction.",
+                            "enum": [
+                                "PrimaryToRecovery",
+                                "RecoveryToPrimary"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "modelAsString": true,
+                                "name": "PossibleOperationsDirections"
+                            }
+                        },
+                        "providerSpecificDetails": {
+                            "description": "The provider specific properties.",
+                            "items": {
+                                "description": "Recovery plan provider specific failover input base class.",
+                                "discriminator": {
+                                    "propertyName": "instanceType"
+                                },
+                                "properties": {
+                                    "instanceType": {
+                                        "description": "The class type.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "required": [
+                        "failoverDirection"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

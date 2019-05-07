@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "vCenterName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Input required to update vCenter.",
+            "properties": {
+                "properties": {
+                    "description": "The update VCenter Request Properties.",
+                    "properties": {
+                        "friendlyName": {
+                            "description": "The friendly name of the vCenter.",
+                            "type": "string"
+                        },
+                        "ipAddress": {
+                            "description": "The IP address of the vCenter to be discovered.",
+                            "type": "string"
+                        },
+                        "port": {
+                            "description": "The port number for discovery.",
+                            "type": "string"
+                        },
+                        "processServerId": {
+                            "description": "The process server Id from where the update can be orchestrated.",
+                            "type": "string"
+                        },
+                        "runAsAccountId": {
+                            "description": "The CS account Id which has privileges to update the vCenter.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

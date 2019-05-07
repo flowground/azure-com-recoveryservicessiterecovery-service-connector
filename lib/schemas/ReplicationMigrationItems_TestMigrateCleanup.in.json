@@ -1,0 +1,52 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "protectionContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "migrationItemName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Input for test migrate cleanup.",
+            "properties": {
+                "properties": {
+                    "description": "Test migrate cleanup input properties.",
+                    "properties": {
+                        "comments": {
+                            "description": "Test migrate cleanup comments.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

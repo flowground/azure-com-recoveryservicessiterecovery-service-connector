@@ -1,0 +1,41 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Certificate renewal input.",
+            "properties": {
+                "properties": {
+                    "description": "Renew certificate input properties.",
+                    "properties": {
+                        "renewCertificateType": {
+                            "description": "Renew certificate type.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "recoveryPlanName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Recovery plan test failover cleanup input.",
+            "properties": {
+                "properties": {
+                    "description": "The recovery plan test failover cleanup input properties.",
+                    "properties": {
+                        "comments": {
+                            "description": "The test failover cleanup comments.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

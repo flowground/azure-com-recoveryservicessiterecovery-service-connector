@@ -1,0 +1,66 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "protectionContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "mappingName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Configure pairing input.",
+            "properties": {
+                "properties": {
+                    "description": "Configure protection input properties.",
+                    "properties": {
+                        "policyId": {
+                            "description": "Applicable policy.",
+                            "type": "string"
+                        },
+                        "providerSpecificInput": {
+                            "description": "Provider specific input for pairing.",
+                            "discriminator": {
+                                "propertyName": "instanceType"
+                            },
+                            "properties": {
+                                "instanceType": {
+                                    "description": "The class type.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "targetProtectionContainerId": {
+                            "description": "The target unique protection container name.",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

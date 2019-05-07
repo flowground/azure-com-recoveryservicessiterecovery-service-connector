@@ -1,0 +1,60 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to failover a process server.",
+            "properties": {
+                "properties": {
+                    "description": "The properties of the PS Failover request.",
+                    "properties": {
+                        "containerName": {
+                            "description": "The container identifier.",
+                            "type": "string"
+                        },
+                        "sourceProcessServerId": {
+                            "description": "The source process server.",
+                            "type": "string"
+                        },
+                        "targetProcessServerId": {
+                            "description": "The new process server.",
+                            "type": "string"
+                        },
+                        "updateType": {
+                            "description": "A value for failover type. It can be systemlevel/serverlevel",
+                            "type": "string"
+                        },
+                        "vmsToMigrate": {
+                            "description": "The VMS to migrate.",
+                            "items": {
+                                "type": "string"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

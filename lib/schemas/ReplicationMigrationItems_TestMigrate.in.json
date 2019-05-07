@@ -1,0 +1,67 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "fabricName": {
+            "required": true,
+            "type": "string"
+        },
+        "protectionContainerName": {
+            "required": true,
+            "type": "string"
+        },
+        "migrationItemName": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Input for test migrate.",
+            "properties": {
+                "properties": {
+                    "description": "Test migrate input properties.",
+                    "properties": {
+                        "providerSpecificDetails": {
+                            "description": "The provider specific details.",
+                            "discriminator": {
+                                "propertyName": "instanceType"
+                            },
+                            "properties": {
+                                "instanceType": {
+                                    "description": "The class type.",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "instanceType"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "required": [
+                        "providerSpecificDetails"
+                    ],
+                    "type": "object"
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,2100 @@
+{
+    "title": "SiteRecoveryManagementClient",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/recoveryservicessiterecovery-service/2018-07-10/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Returns the list of available operations.",
+            "description": "Operation to return the list of available operations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationAlertSettings_List": {
+            "main": "./lib/actions/ReplicationAlertSettings_List.js",
+            "title": "Gets the list of configured email notification(alert) configurations.",
+            "description": "Gets the list of email notification(alert) configurations for the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationAlertSettings_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationAlertSettings_Get": {
+            "main": "./lib/actions/ReplicationAlertSettings_Get.js",
+            "title": "Gets an email notification(alert) configuration.",
+            "description": "Gets the details of the specified email notification(alert) configuration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationAlertSettings_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationAlertSettings_Create": {
+            "main": "./lib/actions/ReplicationAlertSettings_Create.js",
+            "title": "Configures email notifications for this vault.",
+            "description": "Create or update an email notification(alert) configuration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationAlertSettings_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationEvents_List": {
+            "main": "./lib/actions/ReplicationEvents_List.js",
+            "title": "Gets the list of Azure Site Recovery events.",
+            "description": "Gets the list of Azure Site Recovery events for the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationEvents_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationEvents_Get": {
+            "main": "./lib/actions/ReplicationEvents_Get.js",
+            "title": "Get the details of an Azure Site recovery event.",
+            "description": "The operation to get the details of an Azure Site recovery event.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationEvents_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationFabrics_List": {
+            "main": "./lib/actions/ReplicationFabrics_List.js",
+            "title": "Gets the list of ASR fabrics",
+            "description": "Gets a list of the Azure Site Recovery fabrics in the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationFabrics_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationFabrics_Purge": {
+            "main": "./lib/actions/ReplicationFabrics_Purge.js",
+            "title": "Purges the site.",
+            "description": "The operation to purge(force delete) an Azure Site Recovery fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationFabrics_Purge.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationFabrics_Get": {
+            "main": "./lib/actions/ReplicationFabrics_Get.js",
+            "title": "Gets the details of an ASR fabric.",
+            "description": "Gets the details of an Azure Site Recovery fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationFabrics_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationFabrics_Create": {
+            "main": "./lib/actions/ReplicationFabrics_Create.js",
+            "title": "Creates an Azure Site Recovery fabric.",
+            "description": "The operation to create an Azure Site Recovery fabric (for e.g. Hyper-V site)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationFabrics_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationFabrics_CheckConsistency": {
+            "main": "./lib/actions/ReplicationFabrics_CheckConsistency.js",
+            "title": "Checks the consistency of the ASR fabric.",
+            "description": "The operation to perform a consistency check on the fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationFabrics_CheckConsistency.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationFabrics_MigrateToAad": {
+            "main": "./lib/actions/ReplicationFabrics_MigrateToAad.js",
+            "title": "Migrates the site to AAD.",
+            "description": "The operation to migrate an Azure Site Recovery fabric to AAD.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationFabrics_MigrateToAad.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationFabrics_ReassociateGateway": {
+            "main": "./lib/actions/ReplicationFabrics_ReassociateGateway.js",
+            "title": "Perform failover of the process server.",
+            "description": "The operation to move replications from a process server to another process server.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationFabrics_ReassociateGateway.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationFabrics_Delete": {
+            "main": "./lib/actions/ReplicationFabrics_Delete.js",
+            "title": "Deletes the site.",
+            "description": "The operation to delete or remove an Azure Site Recovery fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationFabrics_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationFabrics_RenewCertificate": {
+            "main": "./lib/actions/ReplicationFabrics_RenewCertificate.js",
+            "title": "Renews certificate for the fabric.",
+            "description": "Renews the connection certificate for the ASR replication fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationFabrics_RenewCertificate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationLogicalNetworks_ListByReplicationFabrics": {
+            "main": "./lib/actions/ReplicationLogicalNetworks_ListByReplicationFabrics.js",
+            "title": "Gets the list of logical networks under a fabric.",
+            "description": "Lists all the logical networks of the Azure Site Recovery fabric",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationLogicalNetworks_ListByReplicationFabrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationLogicalNetworks_Get": {
+            "main": "./lib/actions/ReplicationLogicalNetworks_Get.js",
+            "title": "Gets a logical network with specified server id and logical network name.",
+            "description": "Gets the details of a logical network.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationLogicalNetworks_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationNetworks_ListByReplicationFabrics": {
+            "main": "./lib/actions/ReplicationNetworks_ListByReplicationFabrics.js",
+            "title": "Gets the list of networks under a fabric.",
+            "description": "Lists the networks available for a fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationNetworks_ListByReplicationFabrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationNetworks_Get": {
+            "main": "./lib/actions/ReplicationNetworks_Get.js",
+            "title": "Gets a network with specified server id and network name.",
+            "description": "Gets the details of a network.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationNetworks_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationNetworkMappings_ListByReplicationNetworks": {
+            "main": "./lib/actions/ReplicationNetworkMappings_ListByReplicationNetworks.js",
+            "title": "Gets all the network mappings under a network.",
+            "description": "Lists all ASR network mappings for the specified network.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationNetworkMappings_ListByReplicationNetworks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationNetworkMappings_Delete": {
+            "main": "./lib/actions/ReplicationNetworkMappings_Delete.js",
+            "title": "Delete network mapping.",
+            "description": "The operation to delete a network mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationNetworkMappings_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationNetworkMappings_Get": {
+            "main": "./lib/actions/ReplicationNetworkMappings_Get.js",
+            "title": "Gets network mapping by name.",
+            "description": "Gets the details of an ASR network mapping",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationNetworkMappings_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationNetworkMappings_Update": {
+            "main": "./lib/actions/ReplicationNetworkMappings_Update.js",
+            "title": "Updates network mapping.",
+            "description": "The operation to update an ASR network mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationNetworkMappings_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationNetworkMappings_Create": {
+            "main": "./lib/actions/ReplicationNetworkMappings_Create.js",
+            "title": "Creates network mapping.",
+            "description": "The operation to create an ASR network mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationNetworkMappings_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainers_ListByReplicationFabrics": {
+            "main": "./lib/actions/ReplicationProtectionContainers_ListByReplicationFabrics.js",
+            "title": "Gets the list of protection container for a fabric.",
+            "description": "Lists the protection containers in the specified fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainers_ListByReplicationFabrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainers_Get": {
+            "main": "./lib/actions/ReplicationProtectionContainers_Get.js",
+            "title": "Gets the protection container details.",
+            "description": "Gets the details of a protection container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainers_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainers_Create": {
+            "main": "./lib/actions/ReplicationProtectionContainers_Create.js",
+            "title": "Create a protection container.",
+            "description": "Operation to create a protection container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainers_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainers_DiscoverProtectableItem": {
+            "main": "./lib/actions/ReplicationProtectionContainers_DiscoverProtectableItem.js",
+            "title": "Adds a protectable item to the replication protection container.",
+            "description": "The operation to a add a protectable item to a protection container(Add physical server.)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainers_DiscoverProtectableItem.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainers_Delete": {
+            "main": "./lib/actions/ReplicationProtectionContainers_Delete.js",
+            "title": "Removes a protection container.",
+            "description": "Operation to remove a protection container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainers_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationMigrationItems_ListByReplicationProtectionContainers": {
+            "main": "./lib/actions/ReplicationMigrationItems_ListByReplicationProtectionContainers.js",
+            "title": "Gets the list of migration items in the protection container.",
+            "description": "Gets the list of ASR migration items in the protection container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationMigrationItems_ListByReplicationProtectionContainers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationMigrationItems_Delete": {
+            "main": "./lib/actions/ReplicationMigrationItems_Delete.js",
+            "title": "Delete the migration item.",
+            "description": "The operation to delete an ASR migration item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationMigrationItems_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationMigrationItems_Get": {
+            "main": "./lib/actions/ReplicationMigrationItems_Get.js",
+            "title": "Gets the details of a migration item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationMigrationItems_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationMigrationItems_Update": {
+            "main": "./lib/actions/ReplicationMigrationItems_Update.js",
+            "title": "Updates migration item.",
+            "description": "The operation to update the recovery settings of an ASR migration item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationMigrationItems_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationMigrationItems_Create": {
+            "main": "./lib/actions/ReplicationMigrationItems_Create.js",
+            "title": "Enables migration.",
+            "description": "The operation to create an ASR migration item (enable migration).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationMigrationItems_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationMigrationItems_Migrate": {
+            "main": "./lib/actions/ReplicationMigrationItems_Migrate.js",
+            "title": "Migrate item.",
+            "description": "The operation to initiate migration of the item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationMigrationItems_Migrate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MigrationRecoveryPoints_ListByReplicationMigrationItems": {
+            "main": "./lib/actions/MigrationRecoveryPoints_ListByReplicationMigrationItems.js",
+            "title": "Gets the recovery points for a migration item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MigrationRecoveryPoints_ListByReplicationMigrationItems.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "MigrationRecoveryPoints_Get": {
+            "main": "./lib/actions/MigrationRecoveryPoints_Get.js",
+            "title": "Gets a recovery point for a migration item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/MigrationRecoveryPoints_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationMigrationItems_TestMigrate": {
+            "main": "./lib/actions/ReplicationMigrationItems_TestMigrate.js",
+            "title": "Test migrate item.",
+            "description": "The operation to initiate test migration of the item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationMigrationItems_TestMigrate.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationMigrationItems_TestMigrateCleanup": {
+            "main": "./lib/actions/ReplicationMigrationItems_TestMigrateCleanup.js",
+            "title": "Test migrate cleanup.",
+            "description": "The operation to initiate test migrate cleanup.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationMigrationItems_TestMigrateCleanup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectableItems_ListByReplicationProtectionContainers": {
+            "main": "./lib/actions/ReplicationProtectableItems_ListByReplicationProtectionContainers.js",
+            "title": "Gets the list of protectable items.",
+            "description": "Lists the protectable items in a protection container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectableItems_ListByReplicationProtectionContainers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectableItems_Get": {
+            "main": "./lib/actions/ReplicationProtectableItems_Get.js",
+            "title": "Gets the details of a protectable item.",
+            "description": "The operation to get the details of a protectable item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectableItems_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_ListByReplicationProtectionContainers": {
+            "main": "./lib/actions/ReplicationProtectedItems_ListByReplicationProtectionContainers.js",
+            "title": "Gets the list of Replication protected items.",
+            "description": "Gets the list of ASR replication protected items in the protection container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_ListByReplicationProtectionContainers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_Purge": {
+            "main": "./lib/actions/ReplicationProtectedItems_Purge.js",
+            "title": "Purges protection.",
+            "description": "The operation to delete or purge a replication protected item. This operation will force delete the replication protected item. Use the remove operation on replication protected item to perform a clean disable replication for the item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_Purge.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_Get": {
+            "main": "./lib/actions/ReplicationProtectedItems_Get.js",
+            "title": "Gets the details of a Replication protected item.",
+            "description": "Gets the details of an ASR replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_Update": {
+            "main": "./lib/actions/ReplicationProtectedItems_Update.js",
+            "title": "Updates protection.",
+            "description": "The operation to update the recovery settings of an ASR replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_Create": {
+            "main": "./lib/actions/ReplicationProtectedItems_Create.js",
+            "title": "Enables protection.",
+            "description": "The operation to create an ASR replication protected item (Enable replication).",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_ResolveHealthErrors": {
+            "main": "./lib/actions/ReplicationProtectedItems_ResolveHealthErrors.js",
+            "title": "Resolve health errors.",
+            "description": "Operation to resolve health issues of the replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_ResolveHealthErrors.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_AddDisks": {
+            "main": "./lib/actions/ReplicationProtectedItems_AddDisks.js",
+            "title": "Add disk(s) for protection.",
+            "description": "Operation to add disks(s) to the replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_AddDisks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_ApplyRecoveryPoint": {
+            "main": "./lib/actions/ReplicationProtectedItems_ApplyRecoveryPoint.js",
+            "title": "Change or apply recovery point.",
+            "description": "The operation to change the recovery point of a failed over replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_ApplyRecoveryPoint.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_FailoverCommit": {
+            "main": "./lib/actions/ReplicationProtectedItems_FailoverCommit.js",
+            "title": "Execute commit failover",
+            "description": "Operation to commit the failover of the replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_FailoverCommit.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_PlannedFailover": {
+            "main": "./lib/actions/ReplicationProtectedItems_PlannedFailover.js",
+            "title": "Execute planned failover",
+            "description": "Operation to initiate a planned failover of the replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_PlannedFailover.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_Reprotect": {
+            "main": "./lib/actions/ReplicationProtectedItems_Reprotect.js",
+            "title": "Execute Reverse Replication\\Reprotect",
+            "description": "Operation to reprotect or reverse replicate a failed over replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_Reprotect.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RecoveryPoints_ListByReplicationProtectedItems": {
+            "main": "./lib/actions/RecoveryPoints_ListByReplicationProtectedItems.js",
+            "title": "Get recovery points for a replication protected item.",
+            "description": "Lists the available recovery points for a replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RecoveryPoints_ListByReplicationProtectedItems.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "RecoveryPoints_Get": {
+            "main": "./lib/actions/RecoveryPoints_Get.js",
+            "title": "Get a recovery point.",
+            "description": "Get the details of specified recovery point.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/RecoveryPoints_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_Delete": {
+            "main": "./lib/actions/ReplicationProtectedItems_Delete.js",
+            "title": "Disables protection.",
+            "description": "The operation to disable replication on a replication protected item. This will also remove the item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_RemoveDisks": {
+            "main": "./lib/actions/ReplicationProtectedItems_RemoveDisks.js",
+            "title": "Removes disk(s).",
+            "description": "Operation to remove disk(s) from the replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_RemoveDisks.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_RepairReplication": {
+            "main": "./lib/actions/ReplicationProtectedItems_RepairReplication.js",
+            "title": "Resynchronize or repair replication.",
+            "description": "The operation to start resynchronize/repair replication for a replication protected item requiring resynchronization.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_RepairReplication.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "TargetComputeSizes_ListByReplicationProtectedItems": {
+            "main": "./lib/actions/TargetComputeSizes_ListByReplicationProtectedItems.js",
+            "title": "Gets the list of target compute sizes for the replication protected item.",
+            "description": "Lists the available target compute sizes for a replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/TargetComputeSizes_ListByReplicationProtectedItems.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_TestFailover": {
+            "main": "./lib/actions/ReplicationProtectedItems_TestFailover.js",
+            "title": "Execute test failover",
+            "description": "Operation to perform a test failover of the replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_TestFailover.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_TestFailoverCleanup": {
+            "main": "./lib/actions/ReplicationProtectedItems_TestFailoverCleanup.js",
+            "title": "Execute test failover cleanup.",
+            "description": "Operation to clean up the test failover of a replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_TestFailoverCleanup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_UnplannedFailover": {
+            "main": "./lib/actions/ReplicationProtectedItems_UnplannedFailover.js",
+            "title": "Execute unplanned failover",
+            "description": "Operation to initiate a failover of the replication protected item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_UnplannedFailover.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_UpdateMobilityService": {
+            "main": "./lib/actions/ReplicationProtectedItems_UpdateMobilityService.js",
+            "title": "Update the mobility service on a protected item.",
+            "description": "The operation to update(push update) the installed mobility service software on a replication protected item to the latest available version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_UpdateMobilityService.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainerMappings_ListByReplicationProtectionContainers": {
+            "main": "./lib/actions/ReplicationProtectionContainerMappings_ListByReplicationProtectionContainers.js",
+            "title": "Gets the list of protection container mappings for a protection container.",
+            "description": "Lists the protection container mappings for a protection container.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainerMappings_ListByReplicationProtectionContainers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainerMappings_Purge": {
+            "main": "./lib/actions/ReplicationProtectionContainerMappings_Purge.js",
+            "title": "Purge protection container mapping.",
+            "description": "The operation to purge(force delete) a protection container mapping",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainerMappings_Purge.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainerMappings_Get": {
+            "main": "./lib/actions/ReplicationProtectionContainerMappings_Get.js",
+            "title": "Gets a protection container mapping/",
+            "description": "Gets the details of a protection container mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainerMappings_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainerMappings_Update": {
+            "main": "./lib/actions/ReplicationProtectionContainerMappings_Update.js",
+            "title": "Update protection container mapping.",
+            "description": "The operation to update protection container mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainerMappings_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainerMappings_Create": {
+            "main": "./lib/actions/ReplicationProtectionContainerMappings_Create.js",
+            "title": "Create protection container mapping.",
+            "description": "The operation to create a protection container mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainerMappings_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainerMappings_Delete": {
+            "main": "./lib/actions/ReplicationProtectionContainerMappings_Delete.js",
+            "title": "Remove protection container mapping.",
+            "description": "The operation to delete or remove a protection container mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainerMappings_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainers_SwitchProtection": {
+            "main": "./lib/actions/ReplicationProtectionContainers_SwitchProtection.js",
+            "title": "Switches protection from one container to another or one replication provider to another.",
+            "description": "Operation to switch protection from one container to another or one replication provider to another.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainers_SwitchProtection.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryServicesProviders_ListByReplicationFabrics": {
+            "main": "./lib/actions/ReplicationRecoveryServicesProviders_ListByReplicationFabrics.js",
+            "title": "Gets the list of registered recovery services providers for the fabric.",
+            "description": "Lists the registered recovery services providers for the specified fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryServicesProviders_ListByReplicationFabrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryServicesProviders_Purge": {
+            "main": "./lib/actions/ReplicationRecoveryServicesProviders_Purge.js",
+            "title": "Purges recovery service provider from fabric",
+            "description": "The operation to purge(force delete) a recovery services provider from the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryServicesProviders_Purge.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryServicesProviders_Get": {
+            "main": "./lib/actions/ReplicationRecoveryServicesProviders_Get.js",
+            "title": "Gets the details of a recovery services provider.",
+            "description": "Gets the details of registered recovery services provider.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryServicesProviders_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryServicesProviders_Create": {
+            "main": "./lib/actions/ReplicationRecoveryServicesProviders_Create.js",
+            "title": "Adds a recovery services provider.",
+            "description": "The operation to add a recovery services provider.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryServicesProviders_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryServicesProviders_RefreshProvider": {
+            "main": "./lib/actions/ReplicationRecoveryServicesProviders_RefreshProvider.js",
+            "title": "Refresh details from the recovery services provider.",
+            "description": "The operation to refresh the information from the recovery services provider.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryServicesProviders_RefreshProvider.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryServicesProviders_Delete": {
+            "main": "./lib/actions/ReplicationRecoveryServicesProviders_Delete.js",
+            "title": "Deletes provider from fabric. Note: Deleting provider for any fabric other than SingleHost is unsupported. To maintain backward compatibility for released clients the object \"deleteRspInput\" is used (if the object is empty we assume that it is old client and continue the old behavior).",
+            "description": "The operation to removes/delete(unregister) a recovery services provider from the vault",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryServicesProviders_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationStorageClassifications_ListByReplicationFabrics": {
+            "main": "./lib/actions/ReplicationStorageClassifications_ListByReplicationFabrics.js",
+            "title": "Gets the list of storage classification objects under a fabric.",
+            "description": "Lists the storage classifications available in the specified fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationStorageClassifications_ListByReplicationFabrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationStorageClassifications_Get": {
+            "main": "./lib/actions/ReplicationStorageClassifications_Get.js",
+            "title": "Gets the details of a storage classification.",
+            "description": "Gets the details of the specified storage classification.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationStorageClassifications_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationStorageClassificationMappings_ListByReplicationStorageClassifications": {
+            "main": "./lib/actions/ReplicationStorageClassificationMappings_ListByReplicationStorageClassifications.js",
+            "title": "Gets the list of storage classification mappings objects under a storage.",
+            "description": "Lists the storage classification mappings for the fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationStorageClassificationMappings_ListByReplicationStorageClassifications.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationStorageClassificationMappings_Delete": {
+            "main": "./lib/actions/ReplicationStorageClassificationMappings_Delete.js",
+            "title": "Delete a storage classification mapping.",
+            "description": "The operation to delete a storage classification mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationStorageClassificationMappings_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationStorageClassificationMappings_Get": {
+            "main": "./lib/actions/ReplicationStorageClassificationMappings_Get.js",
+            "title": "Gets the details of a storage classification mapping.",
+            "description": "Gets the details of the specified storage classification mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationStorageClassificationMappings_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationStorageClassificationMappings_Create": {
+            "main": "./lib/actions/ReplicationStorageClassificationMappings_Create.js",
+            "title": "Create storage classification mapping.",
+            "description": "The operation to create a storage classification mapping.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationStorageClassificationMappings_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationvCenters_ListByReplicationFabrics": {
+            "main": "./lib/actions/ReplicationvCenters_ListByReplicationFabrics.js",
+            "title": "Gets the list of vCenter registered under a fabric.",
+            "description": "Lists the vCenter servers registered in a fabric.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationvCenters_ListByReplicationFabrics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationvCenters_Delete": {
+            "main": "./lib/actions/ReplicationvCenters_Delete.js",
+            "title": "Remove vCenter operation.",
+            "description": "The operation to remove(unregister) a registered vCenter server from the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationvCenters_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationvCenters_Get": {
+            "main": "./lib/actions/ReplicationvCenters_Get.js",
+            "title": "Gets the details of a vCenter.",
+            "description": "Gets the details of a registered vCenter server(Add vCenter server.)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationvCenters_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationvCenters_Update": {
+            "main": "./lib/actions/ReplicationvCenters_Update.js",
+            "title": "Update vCenter operation.",
+            "description": "The operation to update a registered vCenter.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationvCenters_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationvCenters_Create": {
+            "main": "./lib/actions/ReplicationvCenters_Create.js",
+            "title": "Add vCenter.",
+            "description": "The operation to create a vCenter object..",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationvCenters_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationJobs_List": {
+            "main": "./lib/actions/ReplicationJobs_List.js",
+            "title": "Gets the list of jobs.",
+            "description": "Gets the list of Azure Site Recovery Jobs for the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationJobs_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationJobs_Export": {
+            "main": "./lib/actions/ReplicationJobs_Export.js",
+            "title": "Exports the details of the Azure Site Recovery jobs of the vault.",
+            "description": "The operation to export the details of the Azure Site Recovery jobs of the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationJobs_Export.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationJobs_Get": {
+            "main": "./lib/actions/ReplicationJobs_Get.js",
+            "title": "Gets the job details.",
+            "description": "Get the details of an Azure Site Recovery job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationJobs_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationJobs_Cancel": {
+            "main": "./lib/actions/ReplicationJobs_Cancel.js",
+            "title": "Cancels the specified job.",
+            "description": "The operation to cancel an Azure Site Recovery job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationJobs_Cancel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationJobs_Restart": {
+            "main": "./lib/actions/ReplicationJobs_Restart.js",
+            "title": "Restarts the specified job.",
+            "description": "The operation to restart an Azure Site Recovery job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationJobs_Restart.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationJobs_Resume": {
+            "main": "./lib/actions/ReplicationJobs_Resume.js",
+            "title": "Resumes the specified job.",
+            "description": "The operation to resume an Azure Site Recovery job",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationJobs_Resume.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationMigrationItems_List": {
+            "main": "./lib/actions/ReplicationMigrationItems_List.js",
+            "title": "Gets the list of migration items in the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationMigrationItems_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationNetworkMappings_List": {
+            "main": "./lib/actions/ReplicationNetworkMappings_List.js",
+            "title": "Gets all the network mappings under a vault.",
+            "description": "Lists all ASR network mappings in the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationNetworkMappings_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationNetworks_List": {
+            "main": "./lib/actions/ReplicationNetworks_List.js",
+            "title": "Gets the list of networks. View-only API.",
+            "description": "Lists the networks available in a vault",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationNetworks_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationPolicies_List": {
+            "main": "./lib/actions/ReplicationPolicies_List.js",
+            "title": "Gets the list of replication policies",
+            "description": "Lists the replication policies for a vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationPolicies_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationPolicies_Delete": {
+            "main": "./lib/actions/ReplicationPolicies_Delete.js",
+            "title": "Delete the policy.",
+            "description": "The operation to delete a replication policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationPolicies_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationPolicies_Get": {
+            "main": "./lib/actions/ReplicationPolicies_Get.js",
+            "title": "Gets the requested policy.",
+            "description": "Gets the details of a replication policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationPolicies_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationPolicies_Update": {
+            "main": "./lib/actions/ReplicationPolicies_Update.js",
+            "title": "Updates the policy.",
+            "description": "The operation to update a replication policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationPolicies_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationPolicies_Create": {
+            "main": "./lib/actions/ReplicationPolicies_Create.js",
+            "title": "Creates the policy.",
+            "description": "The operation to create a replication policy",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationPolicies_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectedItems_List": {
+            "main": "./lib/actions/ReplicationProtectedItems_List.js",
+            "title": "Gets the list of replication protected items.",
+            "description": "Gets the list of ASR replication protected items in the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectedItems_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainerMappings_List": {
+            "main": "./lib/actions/ReplicationProtectionContainerMappings_List.js",
+            "title": "Gets the list of all protection container mappings in a vault.",
+            "description": "Lists the protection container mappings in the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainerMappings_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationProtectionContainers_List": {
+            "main": "./lib/actions/ReplicationProtectionContainers_List.js",
+            "title": "Gets the list of all protection containers in a vault.",
+            "description": "Lists the protection containers in a vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationProtectionContainers_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_List": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_List.js",
+            "title": "Gets the list of recovery plans.",
+            "description": "Lists the recovery plans in the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_Delete": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_Delete.js",
+            "title": "Deletes the specified recovery plan.",
+            "description": "Delete a recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_Get": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_Get.js",
+            "title": "Gets the requested recovery plan.",
+            "description": "Gets the details of the recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_Update": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_Update.js",
+            "title": "Updates the given recovery plan.",
+            "description": "The operation to update a recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_Create": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_Create.js",
+            "title": "Creates a recovery plan with the given details.",
+            "description": "The operation to create a recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_FailoverCommit": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_FailoverCommit.js",
+            "title": "Execute commit failover of the recovery plan.",
+            "description": "The operation to commit the fail over of a recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_FailoverCommit.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_PlannedFailover": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_PlannedFailover.js",
+            "title": "Execute planned failover of the recovery plan.",
+            "description": "The operation to start the planned failover of a recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_PlannedFailover.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_Reprotect": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_Reprotect.js",
+            "title": "Execute reprotect of the recovery plan.",
+            "description": "The operation to reprotect(reverse replicate) a recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_Reprotect.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_TestFailover": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_TestFailover.js",
+            "title": "Execute test failover of the recovery plan.",
+            "description": "The operation to start the test failover of a recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_TestFailover.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_TestFailoverCleanup": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_TestFailoverCleanup.js",
+            "title": "Execute test failover cleanup of the recovery plan.",
+            "description": "The operation to cleanup test failover of a recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_TestFailoverCleanup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryPlans_UnplannedFailover": {
+            "main": "./lib/actions/ReplicationRecoveryPlans_UnplannedFailover.js",
+            "title": "Execute unplanned failover of the recovery plan.",
+            "description": "The operation to start the failover of a recovery plan.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryPlans_UnplannedFailover.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationRecoveryServicesProviders_List": {
+            "main": "./lib/actions/ReplicationRecoveryServicesProviders_List.js",
+            "title": "Gets the list of registered recovery services providers in the vault. This is a view only api.",
+            "description": "Lists the registered recovery services providers in the vault",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationRecoveryServicesProviders_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationStorageClassificationMappings_List": {
+            "main": "./lib/actions/ReplicationStorageClassificationMappings_List.js",
+            "title": "Gets the list of storage classification mappings objects under a vault.",
+            "description": "Lists the storage classification mappings in the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationStorageClassificationMappings_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationStorageClassifications_List": {
+            "main": "./lib/actions/ReplicationStorageClassifications_List.js",
+            "title": "Gets the list of storage classification objects under a vault.",
+            "description": "Lists the storage classifications in the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationStorageClassifications_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "SupportedOperatingSystems_Get": {
+            "main": "./lib/actions/SupportedOperatingSystems_Get.js",
+            "title": "Gets the data of supported OSes by SRS.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/SupportedOperatingSystems_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationVaultHealth_Get": {
+            "main": "./lib/actions/ReplicationVaultHealth_Get.js",
+            "title": "Gets the health summary for the vault.",
+            "description": "Gets the health details of the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationVaultHealth_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationVaultHealth_Refresh": {
+            "main": "./lib/actions/ReplicationVaultHealth_Refresh.js",
+            "title": "Refreshes health summary of the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationVaultHealth_Refresh.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ReplicationvCenters_List": {
+            "main": "./lib/actions/ReplicationvCenters_List.js",
+            "title": "Gets the list of vCenter registered under the vault.",
+            "description": "Lists the vCenter servers registered in the vault.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ReplicationvCenters_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
